@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herramientas - Vitality Go</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="herramientas.css"> <!-- Vinculamos el archivo CSS externo -->
+</head>
+<body>
+    <!-- Navbar Premium -->
+    <nav class="navbar-premium">
+        <div class="nav-logo">VitalityGo</div>
+        
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+            <li class="nav-item"><a href="detalles.html" class="nav-link">Detalles</a></li>
+            <li class="nav-item"><a href="grupo.html" class="nav-link">Grupo</a></li>
+            <li class="nav-item"><a href="herramientas.html" class="nav-link active">Herramientas</a></li>
+            <li class="nav-item"><a href="investigacion.html" class="nav-link">Investigación</a></li>
+            <li class="nav-item"><a href="descarga.html" class="nav-link">Descarga</a></li>
+        </ul>
+
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="main-title">Herramientas Utilizadas</h1>
+            <p class="hero-description">
+                Descubre las herramientas que hicieron posible el desarrollo de Vitality Go.
+            </p>
+
+            <div class="tools-grid">
+                <!-- Herramienta 1 -->
+                <div class="tool-card">
+                    <img src="IMG HERRAMIENTAS/FIREBASE.png" alt="Firebase">
+                    <h3>Firebase</h3>
+                    <p>Firebase es una plataforma de desarrollo de aplicaciones móviles y web creada por Google. Ofrece bases de datos en tiempo real, autenticación de usuarios, hosting web y más.</p>
+                </div>
+
+                <!-- Herramienta 2 -->
+                <div class="tool-card">
+                    <img src="IMG HERRAMIENTAS/VISUAL.png" alt="Visual Studio Code">
+                    <h3>Visual Studio Code</h3>
+                    <p>Un editor de código ligero y rápido desarrollado por Microsoft, utilizado por programadores para escribir y depurar código en diversas plataformas.</p>
+                </div>
+
+                <!-- Herramienta 3 -->
+                <div class="tool-card">
+                    <img src="IMG HERRAMIENTAS/ILLUSTRATOR.png" alt="Adobe Illustrator">
+                    <h3>Adobe Illustrator</h3>
+                    <p>Un software de diseño gráfico utilizado para la creación de ilustraciones, logotipos y gráficos vectoriales.</p>
+                </div>
+
+                <!-- Herramienta 4 -->
+                <div class="tool-card">
+                    <img src="IMG HERRAMIENTAS/IDX.PNG" alt="IDX Workbench">
+                    <h3>IDX Workbench</h3>
+                    <p>Una herramienta de desarrollo avanzada que facilita la integración de flujos de trabajo en la nube con soporte para múltiples plataformas.</p>
+                </div>
+
+                <!-- Herramienta 5 -->
+                <div class="tool-card">
+                    <img src="IMG HERRAMIENTAS/PHOTO.png" alt="Adobe Photoshop">
+                    <h3>Adobe Photoshop</h3>
+                    <p>Un software de edición de imágenes líder en la industria, utilizado para la manipulación y mejora de fotografías digitales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en enlace
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Animación al hacer scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.tool-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

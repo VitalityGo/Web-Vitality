@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investigación - Vitality Go</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="investigacion.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar Premium -->
+    <nav class="navbar-premium">
+        <div class="nav-logo">VitalityGo</div>
+        
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+            <li class="nav-item"><a href="detalles.html" class="nav-link">Detalles</a></li>
+            <li class="nav-item"><a href="grupo.html" class="nav-link">Grupo</a></li>
+            <li class="nav-item"><a href="herramientas.html" class="nav-link">Herramientas</a></li>
+            <li class="nav-item"><a href="investigacion.html" class="nav-link active">Investigación</a></li>
+            <li class="nav-item"><a href="descarga.html" class="nav-link">Descarga</a></li>
+        </ul>
+
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="main-title">Investigación</h1>
+            <p class="hero-description">
+                Descubre el informe detallado de nuestra investigación y cómo Vitality Go está revolucionando el monitoreo de actividad física.
+            </p>
+
+            <div class="research-content">
+                <h2>Descarga el Informe</h2>
+                <p>
+                    Puedes descargar el informe completo de nuestra investigación en el siguiente enlace. Este documento contiene todos los detalles técnicos, metodológicos y resultados obtenidos durante el desarrollo de Vitality Go.
+                </p>
+                <a href="https://docs.google.com/document/d/1aSl6QntZQi0WynH5vyen5j0iy9y8mI41Xhwhfce6j1A/edit?usp=sharing" download class="download-button">Descargar Informe</a>
+                
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScrtvgG297imU8pA5rZe2Y92W6nMxM4Hw2-xvhcF8WTh1LeSw/viewform?embedded=true" width="640" height="6162" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en enlace
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Animación al hacer scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.research-content').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
